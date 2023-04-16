@@ -236,18 +236,58 @@ class Combat_DAO extends Controller {
                 }
             }
 
-            // public function GetSpefStats(){
-            //     $this->db_connect = connectToDb();
-            //     $user = $_SESSION['id_user'] ;
-            //     $queryStats = "
-            //      SELECT COUNT(DISTINCT id_combat) AS nbreCombat, SUM(points) AS TotalPoints, User.firstname, Pokemon.nom
-            //      FROM Combat INNER JOIN User ON User.id_user = Combat.user 
-            //      INNER JOIN Pokemon ON Pokemon.id_pokemon = Combat.my_poke1
-            //      WHERE user = 30 GROUP BY Pokemon.nom; "
-            // }
-
-         
+            public function GetTop3(){
+                $this->db_connect = connectToDb();
+                $queryStats = "
+                SELECT firstname, SUM(points) AS points, COUNT(id_combat) AS nbre_combat
+                FROM Combat
+                INNER JOIN User ON User.id_user = Combat.user
+                GROUP BY firstname
+                ORDER BY points DESC
+                LIMIT 3 ";
+                $stmt = $this->db_connect->query($queryStats)->fetchAll(PDO::FETCH_ASSOC);
+                if($stmt == null) {
+                    echo " ";
+                } else {
+                    echo "<h1>Top 3 des meilleurs dresseurs Pokémon du monde</h1>" ;
+                    echo "<table><thead><th>Dresseur</th><th>Nombre de points gagnés</th><th>Nombre de combats</th><th>Nombre de victoires</th><th>Ratio V/D</th></thead><tbody>";
+                    foreach($stmt as $row){
+                        $nom['firstname'] = $row['firstname'];
+                        $nom['points'] = $row['points'];
+                        $nom['nbre_combat'] = $row['nbre_combat'];
+                        echo "<tr><td>".$nom['firstname']."</td><td>".$nom['points']."</td><td>".$nom['nbre_combat']."</td><td>".(($nom['points'])/3)."</td><td>".intval(((($nom['points'])/3)/$nom['nbre_combat'])*100)."%</td></tr>";
+                    }
+                    echo "</tbody></table>";
+                    return true;
+            }
         }
+
+        public function classement(){
+            $this->db_connect = connectToDb();
+            $queryStats = "
+            SELECT firstname, SUM(points) AS points, COUNT(id_combat) AS nbre_combat
+            FROM Combat
+            INNER JOIN User ON User.id_user = Combat.user
+            GROUP BY firstname
+            ORDER BY points DESC
+            ";
+            $stmt = $this->db_connect->query($queryStats)->fetchAll(PDO::FETCH_ASSOC);
+            if($stmt == null) {
+                echo " ";
+            } else {
+                echo "<h2>Classement des dresseurs Pokémon du monde</h2>" ;
+                echo "<table><thead><th>Dresseur</th><th>Nombre de points gagnés</th><th>Nombre de combats</th><th>Nombre de victoires</th><th>Ratio V/D</th></thead><tbody>";
+                foreach($stmt as $row){
+                    $nom['firstname'] = $row['firstname'];
+                    $nom['points'] = $row['points'];
+                    $nom['nbre_combat'] = $row['nbre_combat'];
+                    echo "<tr><td>".$nom['firstname']."</td><td>".$nom['points']."</td><td>".$nom['nbre_combat']."</td><td>".(($nom['points'])/3)."</td><td>".intval(((($nom['points'])/3)/$nom['nbre_combat'])*100)."%</td></tr>";
+                }
+                echo "</tbody></table>";
+                return true;
+        }
+        }
+    }
     
 
 

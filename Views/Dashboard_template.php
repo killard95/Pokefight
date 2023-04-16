@@ -2,18 +2,18 @@
 include "Header_template.php" ;
 ?>
 <div id="logo">
-    <h1>Dashboard de <?php echo $_SESSION['name'] ; ?> </h1> 
+    <h1 class="title">Dashboard de <?php echo $_SESSION['name'] ; ?> </h1> 
     <div id="user_action">
-        <a href="/Update"><button>Modify</button></a>
+        <a href="/Update"><button class="button">Modify</button></a>
         <form method="POST" action="/Signout/signout">
-            <button id="signout">Sign Out</button>
+            <button class="signout">Sign Out</button>
         </form>
     </div>
-
+    
     <div id="user_action">
-        <a href="/"><button>Deconnect</button></a>
+        <a href="/Statistiques"><button class="button">Voir mes stats</button></a>
+        <a href="/"><button class="signout">Deconnect</button></a>
     </div>
-    <a href="/Statistiques"><button>Voir mes stats</button></a>
 </div>
 
 <p class="rules">Vous vous apprétez à faire un combat de pokémons jusqu'à ce qu'il n'en reste qu'un seul en vie.
@@ -29,16 +29,6 @@ $result = new Pokemon_DAO() ;
 $result->getPokemon() ;
 include "Footer_template.php" ;
 ?>
-<script>
-        var checks = document.querySelectorAll(".check");
-var max = 2;
-for (var i = 0; i < checks.length; i++)
-  checks[i].onclick = selectiveCheck;
-function selectiveCheck (event) {
-  var checkedChecks = document.querySelectorAll(".check:checked");
-  if (checkedChecks.length >= max + 1)
-    return false;
-}          
-</script>
+
 
 

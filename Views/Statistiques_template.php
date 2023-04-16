@@ -6,9 +6,10 @@ include('Header_template.php');
 $allStats = new Combat_DAO() ;
 $allStats->getBestStats();
 $allStats->getAllStats();
+$allStats->classement();
 ?>
 <br><br>
-<a href="/Dashboard"><button>Retour au dashboard</button></a>
+<a href="/Dashboard"><button class="button">Retour au dashboard</button></a>
 
 <?php
 include('Footer_template.php');

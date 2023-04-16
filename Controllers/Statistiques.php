@@ -19,4 +19,17 @@ class Statistiques extends Controller {
             // $this->render('Statistiques_template') ;
         }
     }
+    public function top3(){
+        $top3 = new Combat_DAO ;
+        if($top3->getTop3()){
+            // $this->render('Home_template') ;
+        }
+    }
+
+    public function classement(){
+        $classement = new Combat_DAO ;
+        if($classement->Classement()){
+            // $this->render('Statistiques_template') ;
+        }
+    }
 }

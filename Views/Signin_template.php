@@ -14,7 +14,7 @@ include "Header_template.php" ;
     <label for="password">Password : </label>
     <input type="password" id="password" name="password" placeholder="Password" required>
 
-    <button id="signin">Sign In</button>
+    <button class="button">Sign In</button>
 </form>
 
 <?php
