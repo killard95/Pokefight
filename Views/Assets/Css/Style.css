@@ -1,0 +1,164 @@
+#body{
+    margin: 0;
+    padding: 0;
+}
+.banner {
+    position: relative;
+    bottom: 30px;
+    background-image: url(/Views/Assets/Images/pkmn.png);
+    background-size: cover;
+    background-position: stretch;
+    background-repeat: no-repeat;
+    height: 50vh;
+}
+.bannerText{
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-end;
+}
+.banner a{
+    float: right;
+}
+h1, h2{
+    text-decoration: underline;
+    text-align: center;
+}
+h2{
+    color: white;
+
+}
+input:focus{
+    background-color: navy;
+    color: azure;
+}
+#sign{
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+#sign input, label{
+    width: 20%;
+}
+#sign input{
+    margin-bottom: 20px;
+}
+#sign button{
+    margin-top: 50px;
+    width : 10%
+}
+#updateForm{
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+#updateForm input, label{
+    width: 20%;
+}
+#updateForm input{
+    margin-bottom: 20px;
+}
+#updateForm button{
+    margin-top: 50px;
+    width : 10%
+}
+button{
+    background-color: royalblue;
+    color: white;
+    border-radius: 50px;
+}
+#signout{
+    background-color: red;
+    color: white;
+    border-radius: 50px;
+}
+#user_action{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
+#logo{
+    position: relative;
+    bottom: 30px;
+    background-image: url(/Views/Assets/Images/pkmn.png);
+    background-size: cover;
+    background-position: stretch;
+    background-repeat: no-repeat;
+    height: 50vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+h2{
+    text-align: center;
+    text-decoration: underline;
+}
+#result{
+    color: goldenrod;
+}
+.red{
+    color: red;
+}
+#fight{
+    text-align: center;
+    color: white;
+}
+.poke_img{
+    width: 50px;
+    height: 50px;
+}
+table{
+    text-align: center;   
+    background: linear-gradient(90deg, #030b5e, #0bc964);
+    border: 2px ridge white;
+    border-collapse: collapse;
+    width: 100%;
+    color: white;
+}
+th, tr, td {
+    border: 2px ridge white;
+    border-collapse: collapse;
+    
+}
+
+.button{
+    background-color: royalblue;
+    color: white;
+    border-radius: 50px;
+}
+body{
+    background: linear-gradient(90deg, #030b5e, #0bc964);
+}
+#potion{
+    color: lime;
+}
+#dead{
+    color: red;
+}
+#potion{
+    color: lime;
+}
+#dead{
+    color: red;
+}
+#stat{
+    color: white;
+}
+#noCombat{
+    color: white;
+}
+.rules{
+    color: white;
+    font-size: larger;
+}
+tr:nth-child(odd){
+    background: rgba(0,0,0,0.3);
+    font-size: large;
+
+}
+th, tr:nth-child(even){
+    background: rgb(255, 255, 255, 0.3);
+    color: rgb(0, 0, 0);
+    font-size: large;
+}
