@@ -12,7 +12,7 @@ include("Header_template.php");
             <input type="password" id="password" name="password" placeholder="Password" required/>
             <button class="button">Log In</button>
         </form>
-    </div>
+    </div><br>
     <a href="/Signin"><button class="button">Create new account</button></a>
 </div>
 <div class="main">

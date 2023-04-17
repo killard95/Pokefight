@@ -16,7 +16,7 @@ include "Header_template.php" ;
     </div>
 </div>
 
-<p class="rules">Vous vous apprétez à faire un combat de pokémons jusqu'à ce qu'il n'en reste qu'un seul en vie.
+<p class="rules">Vous vous apprétez à faire un combat de pokémons jusqu'à ce que les pokémons d'une des deux équipes soient térassés.
     Veuillez choisir parmi la liste ci-dessous deux pokémons pour votre équipe et deux pokémons pour l'équipe de l'IA.
     A la fin de ce combat vos statistiques seront enregistrées et vous pourrez les consulter à tout moment en appuyant sur le bouton "voir mes stats"
 </p>
