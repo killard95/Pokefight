@@ -118,6 +118,8 @@ h2{
     height: 50px;
 }
 #best_poke{
+    margin: auto;
+    text-align: center;
     position: relative;
     width: 100px;
     height: 100px;
@@ -187,7 +189,7 @@ th, tr:nth-child(even){
     background: rgba(0,0,0,0.7);
     color: white;
 }
-#main{
+.main{
     color: white;
     text-align: center;
     font-size: larger;

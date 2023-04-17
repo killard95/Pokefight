@@ -15,7 +15,7 @@ include("Header_template.php");
     </div>
     <a href="/Signin"><button class="button">Create new account</button></a>
 </div>
-<div id="main">
+<div class="main">
     <?php
     $top = new Combat_DAO();
     $top->bestPoke();

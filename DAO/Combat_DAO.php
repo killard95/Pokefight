@@ -328,7 +328,30 @@ class Combat_DAO extends Controller {
             return true;
         }
 
+        public function MyBestPoke(){
+            $this->db_connect = connectToDb();
+            $user = $_SESSION['id_user'];
+            $queryBest = "
+            SELECT user,Pokemon.img, COUNT(my_poke1) AS best
+            FROM Combat
+            INNER JOIN Pokemon On Pokemon.nom = Combat.my_poke1 
+            INNER JOIN User ON User.id_user = Combat.user
+            WHERE Pokemon.nom LIKE my_poke1 AND User.id_user = $user
+            GROUP BY Pokemon.img
+            ORDER BY best DESC
+            LIMIT 1
+            ";
+            $stmt = $this->db_connect->query($queryBest)->fetch(PDO::FETCH_ASSOC);
+            if($stmt == null) {
+            echo "";
+            } else {
+            echo "<h2>Mon meilleur Pokemon</h2>";
+            echo "<img id='best_poke' src='".$stmt['img']."' /> ";
+            return true;
+        }
+
     }
+}
     
 
 

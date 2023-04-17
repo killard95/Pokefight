@@ -46,4 +46,10 @@ class Statistiques extends Controller {
             // $this->render('Home_template') ;
         }
     }
+    public function MyBestPoke(){
+        $myBestOne = new Combat_DAO ;
+        if($myBestOne->MyBestPoke()){
+            // $this->render('Statistiques_template') ;
+        }
+    }
 }
