@@ -52,4 +52,11 @@ class Statistiques extends Controller {
             // $this->render('Statistiques_template') ;
         }
     }
+
+    public function MyBestSecondPoke(){
+        $myBestSecond = new Combat_DAO ;
+        if($myBestSecond->MyBestSecondPoke()){
+            // $this->render('Statistiques_template') ;
+        }
+    }
 }

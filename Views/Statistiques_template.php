@@ -6,6 +6,7 @@ include('Header_template.php');
 <?php
 $allStats = new Combat_DAO() ;
 $allStats->MyBestPoke();
+$allStats->MyBestSecondPoke();
 $allStats->getBestStats();
 $allStats->getAllStats();
 $allStats->classement();

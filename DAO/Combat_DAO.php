@@ -325,9 +325,23 @@ class Combat_DAO extends Controller {
             LIMIT 1
             ";
             $stmt = $this->db_connect->query($queryBest)->fetch(PDO::FETCH_ASSOC);
-            echo "<h2>Pokemon ayant le plus combattu</h2>";
-            echo "<img id='best_poke' src='".$stmt['img']."' /> ";
+            echo "<h2>Pokemons les plus choisis</h2>";
+            echo "<img class='best_poke' src='".$stmt['img']."' /> ";
             return true;
+        }
+
+        public function bestSecondPoke(){
+            $this->db_connect = connectToDb();
+            $queryBestSecond = "
+            SELECT Pokemon.img, COUNT(my_poke2) AS best
+            FROM Combat
+            INNER JOIN Pokemon On Pokemon.nom = Combat.my_poke2
+            GROUP BY Pokemon.img
+            ORDER BY best DESC
+            LIMIT 1
+            ";
+            $stmt = $this->db_connect->query($queryBestSecond)->fetch(PDO::FETCH_ASSOC);
+            echo "<img class='best_poke' src='".$stmt['img']."' /> ";
         }
 
         public function MyBestPoke(){
@@ -347,11 +361,32 @@ class Combat_DAO extends Controller {
             if($stmt == null) {
             echo "";
             } else {
-            echo "<h2>Mon meilleur Pokemon</h2>";
-            echo "<img id='best_poke' src='".$stmt['img']."' /> ";
+            echo "<h2>Mes 2 Pokemons les plus utilisés</h2>";
+            echo "<img class='best_poke' src='".$stmt['img']."' /> ";
             return true;
         }
+    }
 
+    public function MyBestSecondPoke(){
+        $this->db_connect = connectToDb();
+        $user = $_SESSION['id_user'];
+        $queryBestSecond = "
+        SELECT user, Pokemon.img, COUNT(my_poke2) AS best
+        FROM Combat
+        INNER JOIN Pokemon On Pokemon.nom = Combat.my_poke2
+        INNER JOIN User ON User.id_user = Combat.user
+        WHERE Pokemon.nom LIKE my_poke2 AND User.id_user = $user
+        GROUP BY Pokemon.img
+        ORDER BY best DESC
+        LIMIT 1
+        ";
+        $stmt = $this->db_connect->query($queryBestSecond)->fetch(PDO::FETCH_ASSOC);
+        if($stmt == null) {
+            echo "";
+            } else {
+            echo "<img class='best_poke' src='".$stmt['img']."' /> ";
+            return true;
+        }
     }
 }
     

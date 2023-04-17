@@ -19,6 +19,7 @@ include("Header_template.php");
     <?php
     $top = new Combat_DAO();
     $top->bestPoke();
+    $top->bestSecondPoke();
     ?>
     <h2>Ici c'est du 2 VS 2</h2>
     <p>Vous vous apprétez à entrer dans la plus merveilleuse des compétitions.</p>
