@@ -78,6 +78,10 @@ button{
     color: white;
     border-radius: 50px;
 }
+.signout:hover{
+    background-color: rgb(177, 120, 14);
+    color: rgb(10, 86, 130);
+}
 #user_action{
     display: flex;
     flex-direction: row;
@@ -85,7 +89,7 @@ button{
 }
 #logo{
     position: relative;
-    bottom: 30px;
+    bottom: 20px;
     background-image: url(/Views/Assets/Images/pkmn.png);
     background-size: cover;
     background-position: stretch;
@@ -112,6 +116,10 @@ h2{
 .poke_img{
     width: 50px;
     height: 50px;
+}
+.best_poke{
+    width: 100px;
+    height: 100px;
 }
 table{
     text-align: center;   

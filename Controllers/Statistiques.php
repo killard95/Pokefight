@@ -32,4 +32,18 @@ class Statistiques extends Controller {
             // $this->render('Statistiques_template') ;
         }
     }
+
+    public function bestThreePoke(){
+        $bestPoke = new Combat_DAO ;
+        if($bestPoke->bestThreePoke()){
+            // $this->render('Home_template') ;
+        }
+    }
+
+    public function bestPokemon(){
+        $bestOne = new Combat_DAO ;
+        if($bestOne->bestPoke()){
+            // $this->render('Home_template') ;
+        }
+    }
 }

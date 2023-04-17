@@ -285,8 +285,49 @@ class Combat_DAO extends Controller {
                 }
                 echo "</tbody></table>";
                 return true;
+            }
         }
+
+        public function bestThreePoke(){
+            $this->db_connect = connectToDb();
+            $queryThreeBest ="
+            SELECT my_poke1, COUNT(my_poke1) AS best 
+            FROM Combat
+            INNER JOIN Pokemon On Pokemon.nom = Combat.my_poke1 
+            WHERE Pokemon.nom LIKE my_poke1
+            GROUP BY my_poke1
+            ORDER BY best DESC
+            LIMIT 3
+            ";
+            $stmt = $this->db_connect->query($queryThreeBest)->fetchAll(PDO::FETCH_ASSOC);
+            echo "<h2>Top 3 des Pokémon les plus utilisé</h2>";
+            echo "<table><thead><th>Nom du Pokemon</th><th>Nombre de combat effectués</th></thead><tbody>";
+            foreach($stmt as $row){
+                $nom['my_poke1'] = $row['my_poke1'];
+                $nom['best'] = $row['best'];
+                echo "<tr><td>".$nom['my_poke1']."</td><td>".$nom['best']."</td></tr>";
+            }
+            echo "</tbody></table>";
+            return true;
         }
+
+        public function bestPoke(){
+            $this->db_connect = connectToDb();
+            $queryBest = "
+            SELECT Pokemon.img, COUNT(my_poke1) AS best
+            FROM Combat
+            INNER JOIN Pokemon On Pokemon.nom = Combat.my_poke1 
+            WHERE Pokemon.nom LIKE my_poke1
+            GROUP BY Pokemon.img
+            ORDER BY best DESC
+            LIMIT 1
+            ";
+            $stmt = $this->db_connect->query($queryBest)->fetch(PDO::FETCH_ASSOC);
+            echo "<h2>Pokemon ayant le plus combattu</h2>";
+            echo "<img class='best_poke' src='".$stmt['img']."' /> ";
+            return true;
+        }
+
     }
     
 

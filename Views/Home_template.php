@@ -16,10 +16,9 @@ include("Header_template.php");
     <a href="/Signin"><button class="button">Create new account</button></a>
 </div>
 <div id="main">
-
     <?php
     $top = new Combat_DAO();
-    $top->GetTop3();
+    $top->bestPoke();
     ?>
     <h2>Ici c'est du 2 VS 2</h2>
     <p>Vous vous apprétez à entrer dans la plus merveilleuse des compétitions.</p>
@@ -27,6 +26,10 @@ include("Header_template.php");
     <p>Les régles sont simples : vous choissisez 2 pokémons pour votre équipe et deux autres pour l'équipe adverse.</p>
     <p>Laissez la magie opérer et découvrez le résultat. Une victoire équivaut à 3 points et une défaite à 0 points.</p>
     <p>N'attendez plus et allez immédiatement <a href="/Signin">créer un compte</a></p>
+    <?php
+    $top->GetTop3();
+    $top->bestThreePoke();
+    ?>
 </div>
 
 
