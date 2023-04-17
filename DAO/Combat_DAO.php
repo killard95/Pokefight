@@ -225,7 +225,9 @@ class Combat_DAO extends Controller {
                 $stmt = $db->query($queryAllStats)->fetchAll(PDO::FETCH_ASSOC);
                 $result = $db->query($queryVictory)->fetch(PDO::FETCH_BOTH);
                 if($stmt == null) {
-                    echo "<p id='noCombat'>Vous n'avez effectué aucun combat !!!</p>";
+                    echo "<p class='noCombat'>Vous n'avez effectué aucun combat !!!</p>";
+                    echo "<p class='noCombat'>Go fighter des pokémons !!!</p>";
+                    echo "<p class='noCombat'>Essaye de gagner un max de points pour monter au classement !!!</p>";
                     return true;
                 } else {
                     echo "<h2>Statistiques générales</h2>
