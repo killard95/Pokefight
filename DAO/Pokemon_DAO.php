@@ -9,7 +9,8 @@ class Pokemon_DAO extends Controller{
         $this->db_connect = connectToDB() ;
         $db = connectToDb() ;
         $query_pokemons = "
-        SELECT * FROM `Pokemon` ORDER BY `Pokemon`.`PC` ";
+        SELECT * FROM Pokemon ORDER BY Pokemon.PC, nom
+         ";
         $result = $db->query($query_pokemons)->fetchAll(PDO::FETCH_ASSOC) ;
         $count = 0;
         
