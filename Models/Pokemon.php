@@ -71,7 +71,7 @@ class Pokemon {
             $pokemon->PV = 0 ;
         }
         if ($pokemon->PV == 0){
-            echo "<b id='dead'><img class='poke_img' src=".$pokemon->image."> <img class='poke_img' src='/Views/Assets/Images/rip.jpg'><br>".$pokemon->nom." est dead  </b>\n" ;
+            echo "<b id='dead'><img class='poke_img' src=".$pokemon->image."> <img class='poke_img' src='/Views/Assets/Images/rip.jpg'><br>".$pokemon->nom." is dead  </b>\n" ;
         } else {
             echo "il reste ".$pokemon->PV. " PV a ".$pokemon->nom."\n";
         }
